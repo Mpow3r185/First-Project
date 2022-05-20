@@ -1,0 +1,46 @@
+﻿@model IEnumerable<JoinTable>
+@{
+    ViewData["Title"] = "AppointmentPending";
+    Layout = "/Views/Shared/_DashLayout.cshtml";
+}
+<div class="content-body">
+    <div class="col-lg-12" style="margin-top:25px; margin-left:1px;">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Appointments</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    
+                        <table class="table table-responsive-md">
+                            <thead>
+                                <tr>
+                                    <th><strong>PATIENT</strong></th>
+                                    <th><strong>DR NAME</strong></th>
+                                    <th><strong>DATE</strong></th>
+                                    <th><strong>Health Case</strong></th>
+                                    <th><strong>STATUS</strong></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.patient.Fname</td>
+                                        <td>@item.employee.Fname</td>
+                                        <td>@item.appointment.Appointmenttime</td>
+                                        <td>@item.appointment.Healthcase</td>
+                                        <td><span class="badge light badge-success">@item.appointment.Status</span></td>
+
+                                    </tr>
+                                }
+                                </tbody>
+                        </table>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,345 @@
+﻿@model FirstProject.Models.Patient
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+@{
+
+    var ID = ViewBag.PatientID;
+    var name = ViewBag.Name;
+}
+<head>
+    <link href="~/Assests/https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Assests/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assests/css/animate.css">
+
+    <link rel="stylesheet" href="~/Assests/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Assests/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Assests/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/Assests/css/aos.css">
+
+    <link rel="stylesheet" href="~/Assests/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/Assests/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Assests/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/Assests/css/flaticon.css">
+    <link rel="stylesheet" href="~/Assests/css/icomoon.css">
+    <link rel="stylesheet" href="~/Assests/css/style.css">
+    <link rel="stylesheet" href="~/Assests/css/StyleSheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+</head>
+<body>
+    @foreach (var item in @ViewBag.HomePage)
+    {
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/Home/Index"><span>@item.Websitename</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="/Home/Index" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="/Service/Index" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="/Doctors/Index" class="nav-link">Doctors</a></li>
+                        <li class="nav-item"><a href="/About/Index" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="/Contact/Index" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="/Patients/Details/@ID" class="nav-link">Profile</a></li>
+                        <li class="nav-item"><a href="/LoginRegister/Login" class="nav-link">Logout</a></li>
+                 
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    }
+    
+
+        <div class="main-content" style="margin-top:160px;">
+            <div class="container-fluid mt--7">
+                <div class="row">
+                  
+                    <div class="col-xl-8 order-xl-1">
+                        <div class="card bg-secondary shadow">
+                            <div class="card-header bg-white border-0">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h3 class="mb-0">My account</h3>
+                                    </div>
+                               
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <form asp-action="Edit" enctype="multipart/form-data">
+                                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                    <input type="hidden" asp-for="Patientid" />
+                                    <h6 class="heading-small text-muted mb-4">User information</h6>
+                                    <div class="pl-lg-4">
+
+                                        <div class="card card-profile shadow">
+
+                                            <label asp-for="ImgFile" class="control-label">Profile Picture</label>
+                                            <input asp-for="ImgFile" class="form-control" />
+                                            <span asp-validation-for="ImgFile" class="text-danger"></span>
+                                            <div class="card-body pt-0 pt-md-4" style="margin-top:75px;">
+
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group focused">
+                                                    <label asp-for="Fname" class="control-label">First Name</label>
+                                                    <input asp-for="Fname" class="form-control" />
+                                                    <span asp-validation-for="Fname" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group focused">
+                                                    <label asp-for="Lname" class="control-label">Last name</label>
+                                                    <input asp-for="Lname" class="form-control" />
+                                                    <span asp-validation-for="Lname" class="text-danger"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group focused">
+                                                    <label asp-for="Gender" class="control-label">Gender</label>
+                                                    <input asp-for="Gender" class="form-control" />
+                                                    <span asp-validation-for="Gender" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group focused">
+                                                    <label asp-for="Age" class="control-label">Age</label>
+                                                    <input asp-for="Age" class="form-control" />
+                                                    <span asp-validation-for="Age" class="text-danger"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <hr class="my-4">
+                                    Address
+                                    <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                                    <div class="pl-lg-4">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label asp-for="Email" class="control-label">Email</label>
+                                                    <input asp-for="Email" class="form-control" />
+                                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <label asp-for="Phonenumber" class="control-label">Phone number</label>
+                                                    <input asp-for="Phonenumber" class="form-control" />
+                                                    <span asp-validation-for="Phonenumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <hr class="my-4">
+                                    <div class="form-group">
+                                        <input type="submit" value="Save" class="btn btn-primary" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+<footer class="ftco-footer ftco-bg-dark ftco-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-3">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">DentaCare.</h2>
+                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                </div>
+                <ul class="ftco-footer-social list-unstyled float-md-left float-lft ">
+                    <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                    <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                    <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                    <li class="ftco-animate"><a href="#"><span class="icon-youtube"></span></a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <div class="ftco-footer-widget mb-4 ml-md-5">
+                    <h2 class="ftco-heading-2">Quick Links</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="py-2 d-block">About</a></li>
+                        <li><a href="#" class="py-2 d-block">Services</a></li>
+                        <li><a href="#" class="py-2 d-block">Doctors</a></li>
+                        <li><a href="#" class="py-2 d-block">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="ftco-footer-widget mb-4">
+                    <h2 class="ftco-heading-2">Office</h2>
+                    <div class="block-23 mb-3">
+                        <ul>
+                            <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+                            <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                            <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</footer>
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div> <!-- Modal -->
+<div class="modal fade" id="modalRequest" tabindex="-1" role="dialog" aria-labelledby="modalRequestLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalRequestLabel">Make an Appointment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#">
+                    <div class="form-group">
+                        <!-- <label for="appointment_name" class="text-black">Full Name</label> -->
+                        <input type="text" class="form-control" id="appointment_name" placeholder="Full Name">
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="appointment_email" class="text-black">Email</label> -->
+                        <input type="text" class="form-control" id="appointment_email" placeholder="Email">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- <label for="appointment_date" class="text-black">Date</label> -->
+                                <input type="text" class="form-control appointment_date" placeholder="Date">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- <label for="appointment_time" class="text-black">Time</label> -->
+                                <input type="text" class="form-control appointment_time" placeholder="Time">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <!-- <label for="appointment_message" class="text-black">Message</label> -->
+                        <textarea name="" id="appointment_message" class="form-control" cols="30" rows="10" placeholder="Message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Make an Appointment" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Assests/js/jquery.min.js"></script>
+<script src="~/Assests/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="~/Assests/js/popper.min.js"></script>
+<script src="~/Assests/js/bootstrap.min.js"></script>
+<script src="~/Assests/js/jquery.easing.1.3.js"></script>
+<script src="~/Assests/js/jquery.waypoints.min.js"></script>
+<script src="~/Assests/js/jquery.stellar.min.js"></script>
+<script src="~/Assests/js/owl.carousel.min.js"></script>
+<script src="~/Assests/js/jquery.magnific-popup.min.js"></script>
+<script src="~/Assests/js/aos.js"></script>
+<script src="~/Assests/js/jquery.animateNumber.min.js"></script>
+<script src="~/Assests/js/bootstrap-datepicker.js"></script>
+<script src="~/Assests/js/jquery.timepicker.min.js"></script>
+<script src="~/Assests/js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="~/Assests/js/google-map.js"></script>
+<script src="~/Assests/js/main.js"></script>
+
+
+@*<h1>Edit</h1>
+
+<h4>Patient</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Patientid" />
+            <div class="form-group">
+                <label asp-for="Fname" class="control-label"></label>
+                <input asp-for="Fname" class="form-control" />
+                <span asp-validation-for="Fname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lname" class="control-label"></label>
+                <input asp-for="Lname" class="form-control" />
+                <span asp-validation-for="Lname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label"></label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gender" class="control-label"></label>
+                <input asp-for="Gender" class="form-control" />
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phonenumber" class="control-label"></label>
+                <input asp-for="Phonenumber" class="form-control" />
+                <span asp-validation-for="Phonenumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Disease" class="control-label"></label>
+                <input asp-for="Disease" class="form-control" />
+                <span asp-validation-for="Disease" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImgFile" class="control-label"></label>
+                <input asp-for="ImgFile" class="form-control" />
+                <span asp-validation-for="ImgFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>*@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

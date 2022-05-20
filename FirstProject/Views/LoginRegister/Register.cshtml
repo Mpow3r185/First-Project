@@ -1,0 +1,133 @@
+﻿@model FirstProject.Models.Patient
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form by Colorlib</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="~/AssestRegister/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="~/AssestRegister/css/style.css">
+</head>
+
+
+
+<body>
+
+    <div class="main">
+
+        <!-- Sign up form -->
+        <section class="signup">
+            <div class="container">
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">Sign up</h2>
+                        <form method="POST" class="register-form" id="register-form" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label asp-for="Fname" class="control-label"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input asp-for="Fname" class="form-control" placeholder="Your first Name" />
+                                <span asp-validation-for="Fname" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Lname" class="control-label"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input asp-for="Lname" class="form-control" placeholder="Your last Name" />
+                                <span asp-validation-for="Lname" class="text-danger"></span>
+                            </div>
+
+                            @* username and password take it from the user and pass it to the function as string parameter *@
+                            <div class="form-group">
+                                <label for="Email" class="control-label"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" class="form-control" name="Email" id="username" required placeholder=" your Email" />
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Phonenumber" class="control-label"><i class="zmdi zmdi-phone"></i></label>
+                                <input asp-for="Phonenumber" class="form-control" placeholder="Your Phone Number" />
+                                <span asp-validation-for="Phonenumber" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Age"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input asp-for="Age" class="form-control" placeholder="Your Age" />
+                                <span asp-validation-for="Age" class=" text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Gender"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input asp-for="Gender" class="form-control" placeholder="Your Gender" />
+                                <span asp-validation-for="Gender" class=" text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" id="pass" placeholder="Password" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="Repass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="Repass" id="Repass" placeholder="Re-Password"  />
+                            </div>
+                            <div class="form-group">
+                                <span id="ErrorM" style="color:red; text-align:center; padding-top:10px; display:none;font-size:12px;"><b>Passwords not matches</b></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ImgFile" class="control-label"></label>
+                                <br /><br /><br />
+                                <input asp-for="ImgFile" class="form-control" required />
+                                <span asp-validation-for="ImgFile" class="text-danger"></span>
+                            </div>
+
+
+                            <div class="form-group">
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
+                            </div>
+                            <div class="form-group form-button">
+                                <input type="submit" name="signup" id="signup" class="form-submit" value="Create" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="signup-image">
+                        <figure><img src="~/AssestRegister/images/loginimg.jpg" alt="sing up image"></figure>
+                        <a href="/LoginRegister/Login" class="signup-image-link">I am already member</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- JS -->
+    <script src="~/AssestRegister/vendor/jquery/jquery.min.js"></script>
+    <script src="~/AssestRegister/js/main.js"></script>
+    <script>
+            document.getElementById("signup").addEventListener("click", function () {
+            console.log("Testttttt");
+            var pass = document.getElementById("pass").value;
+            var rePass = document.getElementById("Repass").value;
+            
+            if (pass != rePass) {
+                
+                document.getElementById("ErrorM").style.display = "block";
+                event.preventDefault();
+
+            }
+        });
+        //function validation() {
+
+           
+        //}
+           
+
+    </script>
+    </body>
+</html>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

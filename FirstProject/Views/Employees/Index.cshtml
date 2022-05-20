@@ -1,0 +1,109 @@
+﻿@model IEnumerable<FirstProject.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "/Views/Shared/_DashLayout.cshtml";
+}
+
+<h1>Index</h1>
+<div class="content-body">
+    <!-- row -->
+    <div class="container-fluid">
+        <div class="form-head align-items-center d-flex mb-sm-4 mb-3">
+            <div class="mr-auto">
+                <h2 class="text-black font-w600">Doctors</h2>
+                <p class="mb-0">Hospital Admin Dashboard</p>
+            </div>
+            <div>
+                <a href="/Employees/Create" class="btn btn-primary mr-3" >+New Doctor</a>
+                <a href="index.html" class="btn btn-outline-primary"><i class="las la-calendar-plus scale5 mr-3"></i>Filter Date</a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="table-responsive card-table">
+                    <table id="example5" class="display dataTablesCard white-border table-responsive-xl">
+                        <thead>
+                            <tr>
+                                @*<th>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="checkAll" required="">
+                                            <label class="custom-control-label" for="checkAll"></label>
+                                        </div>
+                                    </th>*@
+                                <th>Profile Picture</th>
+                                <th>Employee ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Specialist</th>
+                                <th>Salary</th>
+                                <th>Hire Date</th>
+                                <th>Clinic ID</th>
+                                <th>Phone Number</th>
+                                <th>Email</th>
+                               
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                <td>
+                                    <img src=@Url.Content("~/images/"+item.Imgpath) style="height:75px; width:75px; border-radius:20%;" />
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Empid)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Fname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Lname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Specialist)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Salary)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Hiredate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Clinicid)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phonenumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+
+                                <td>
+                                    <div class="dropdown ml-auto text-right">
+                                        <div class="btn-link" data-toggle="dropdown">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4Z" stroke="#2E2E2E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </div>
+                                        <div class="dropdown-menu dropdown-menu-right">
+                                            <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.Empid">Edit</a>
+                                            <a class="dropdown-item" asp-action="Details" asp-route-id="@item.Empid">Details</a>
+                                            <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.Empid">Delete</a>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

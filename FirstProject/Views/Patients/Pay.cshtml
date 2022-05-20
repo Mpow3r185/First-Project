@@ -1,0 +1,165 @@
+﻿@{ 
+    var ID = ViewBag.PatientID;
+}
+<head>
+    <style>
+        .padding {
+            padding: 5rem !important;
+            margin-left: 300px
+        }
+
+        .card {
+            margin-bottom: 1.5rem
+        }
+
+        .card {
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid #c8ced3;
+            border-radius: .25rem
+        }
+
+        .card-header:first-child {
+            border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0
+        }
+
+        .card-header {
+            padding: .75rem 1.25rem;
+            margin-bottom: 0;
+            background-color: #f0f3f5;
+            border-bottom: 1px solid #c8ced3
+        }
+
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1.25rem
+        }
+
+        .form-control:focus {
+            color: #5c6873;
+            background-color: #fff;
+            border-color: #c8ced3 !important;
+            outline: 0;
+            box-shadow: 0 0 0 #F44336
+        }
+    </style>
+    <link href="~/Assests/https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Assests/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assests/css/animate.css">
+
+    <link rel="stylesheet" href="~/Assests/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Assests/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Assests/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/Assests/css/aos.css">
+
+    <link rel="stylesheet" href="~/Assests/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/Assests/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Assests/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/Assests/css/flaticon.css">
+    <link rel="stylesheet" href="~/Assests/css/icomoon.css">
+    <link rel="stylesheet" href="~/Assests/css/style.css">
+    <link rel="stylesheet" href="~/Assests/css/StyleSheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+</head>
+
+<body>
+    @foreach (var item in @ViewBag.HomePage)
+    {
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/Home/Index"><span>@item.Websitename</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="/Home/Index" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="/Service/Index" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="/Clinic/Index" class="nav-link">Clinics</a></li>
+                        <li class="nav-item"><a href="/Doctors/Index" class="nav-link">Doctors</a></li>
+                        <li class="nav-item"><a href="/About/Index" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="/Contact/Index" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="/Patients/Details/@ID" class="nav-link">Profile</a></li>
+                        <li class="nav-item"><a href="/LoginRegister/Login" class="nav-link">Logout</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    }
+    <div class="padding">
+        <div class="row">
+            <div class="col-sm-6">
+                <form method="POST" action="Pay">   
+                    <div class="card">
+                        <div class="card-header">
+                            <strong>Credit Card</strong>
+                            <small>enter your card details</small>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input class="form-control" for="name" id="name" type="text" placeholder="Enter your name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label for="ccnumber">Credit Card Number</label>
+                                        <div class="input-group">
+                                            <input class="form-control" name="cardnum" id="cardnum" type="text" placeholder="0000 0000 0000 0000" autocomplete="email">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="mdi mdi-credit-card"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-4">
+                                    <label for="ccmonth">Month</label>
+                                    <input class="form-control" name="month" id="month" type="text" placeholder="Month" autocomplete="email">
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label for="ccyear">Year</label>
+                                    <input class="form-control" name="year" id="year" type="text" placeholder="Year" autocomplete="email">
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="cvv">CVV</label>
+                                        <input class="form-control" name="cvv" id="cvv" type="text" placeholder="123">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+
+                            <div class="form-group form-button">
+                                <input type="submit" name="pay" id="pay" class="form-submit" value="Pay" />
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>

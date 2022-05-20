@@ -1,0 +1,40 @@
+﻿@model FirstProject.Models.Attendance
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "/Views/Shared/_DoctorLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Attendance</h4>
+<hr />
+<div class="row" style="margin-left:600px; margin-top:100px;">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Checkin" class="control-label"></label>
+                <input asp-for="Checkin" class="form-control" />
+                <span asp-validation-for="Checkin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Checkout" class="control-label"></label>
+                <input asp-for="Checkout" class="form-control" />
+                <span asp-validation-for="Checkout" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Empid" class="control-label"></label>
+                <select asp-for="Empid" class ="form-control" asp-items="ViewBag.Empid"></select>
+            </div>*@
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

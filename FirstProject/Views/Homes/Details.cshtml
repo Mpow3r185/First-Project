@@ -1,0 +1,54 @@
+﻿@model FirstProject.Models.Home
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Home</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Logo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Logo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Websitename)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Websitename)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Imgslider)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Imgslider)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Textimg)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Textimg)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Openingday)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Openingday)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Openinghour)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Openinghour)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Homeid">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

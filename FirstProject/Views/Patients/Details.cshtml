@@ -1,0 +1,412 @@
+﻿
+@{
+
+    var ID = ViewBag.PatientID;
+    var name = ViewBag.Name;
+}
+<head>
+    <link href="~/Assests/https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Assests/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assests/css/animate.css">
+
+    <link rel="stylesheet" href="~/Assests/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Assests/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Assests/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/Assests/css/aos.css">
+
+    <link rel="stylesheet" href="~/Assests/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/Assests/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Assests/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/Assests/css/flaticon.css">
+    <link rel="stylesheet" href="~/Assests/css/icomoon.css">
+    <link rel="stylesheet" href="~/Assests/css/style.css">
+    <link rel="stylesheet" href="~/Assests/css/StyleSheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+</head>
+<body>
+    @foreach (var item in @ViewBag.HomePage)
+    {
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/Home/Index"><span>@item.Websitename</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="/Home/Index" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="/Service/Index" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="/Clinic/Index" class="nav-link">Clinics</a></li>
+                        <li class="nav-item"><a href="/Doctors/Index" class="nav-link">Doctors</a></li>
+                        <li class="nav-item"><a href="/About/Index" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="/Contact/Index" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="/Patients/Details/@ID" class="nav-link">Profile</a></li>
+                        <li class="nav-item"><a href="/LoginRegister/Login" class="nav-link">Logout</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    }
+    @foreach (var item in @ViewBag.Patient)
+    {
+
+        <div class="main-content" style="margin-top:160px;">
+            <div class="container-fluid mt--7">
+                <div class="row">
+                    <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+                        <div class="card card-profile shadow">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-3 order-lg-2">
+                                    <div class="card-profile-image">
+                                        <a href="#">
+                                            <img class="rounded-circle" src=@Url.Content("~/images/" + item.Imgpath) style="height:125px; width:125px; border-radius:35%;" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body pt-0 pt-md-4" style="margin-top:75px;">
+
+                                <div class="text-center">
+                                    <h3>
+                                        @item.Fname @item.Lname<span class="font-weight-light"></span>
+                                    </h3>
+                                    <div class="h5 font-weight-300">
+                                        <i class="ni location_pin mr-2"></i>Jordan
+                                    </div>
+
+                                    <hr class="my-4">
+                                    @item.Gender, @item.Age
+
+                                    <hr class="my-4">
+                                    <a href="/Patients/Payment">My Payments</a>
+                                </div>
+                               
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 order-xl-1">
+                        <div class="card bg-secondary shadow">
+                            <div class="card-header bg-white border-0">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h3 class="mb-0">My account</h3>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <a href="/Patients/Edit/@item.Patientid" class="btn btn-sm btn-primary">Edit</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <h6 class="heading-small text-muted mb-4">User information</h6>
+                                    <div class="pl-lg-4">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group focused">
+                                                    <h3 class="form-control-label" for="input-fname">First name</h3>
+                                                    <h5 class="form-control form-control-alternative" id="input-fname">@item.Fname</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group focused">
+                                                    <h3 class="form-control-label" for="input-lname">Last name</h3>
+                                                    <h5 class="form-control form-control-alternative" id="input-lname">@item.Lname</h5>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group focused">
+                                                    <h3 class="form-control-label" for="input-gender">Gender</h3>
+                                                    <h5 class="form-control form-control-alternative" id="input-gender">@item.Gender</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group focused">
+                                                    <h3 class="form-control-label" for="input-Age">Age</h3>
+                                                    <h5 class="form-control form-control-alternative" id="input-Age">@item.Age</h5>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <hr class="my-4">
+                                       
+                                    </div>
+                                        <hr class="my-4">
+                                        Address
+                                        <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                                        <div class="pl-lg-4">
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <h3 class="form-control-label" for="input-email">Email address</h3>
+                                                        <h5 class="form-control form-control-alternative" id="input-email">@item.Email</h5>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <h3 class="form-control-label" for="input-phone">Phone number</h3>
+                                                        <h5 class="form-control form-control-alternative" id="input-phone">@item.Phonenumber</h5>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <hr class="my-4">
+
+
+                                        <h3>My Appointments</h3>
+                                        <h6 class="heading-small text-muted mb-4">Appointments information</h6>
+                                        <div class="pl-lg-4">
+                                            @foreach (var itemm in ViewBag.Join)
+                                            {
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <h3 class="form-control-label" for="input-email">Doctor name</h3>
+                                                            <h5 class="form-control form-control-alternative" id="input-email">@itemm.employee.Fname</h5>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <h3 class="form-control-label" for="input-email">Appointment time</h3>
+                                                            <h5 class="form-control form-control-alternative" id="input-email">@itemm.appointment.Appointmenttime</h5>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <h3 class="form-control-label" for="input-phone">appointment status</h3>
+                                                            <h5 class="form-control form-control-alternative" id="input-phone">@itemm.appointment.Status</h5>
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                                <hr class="my-4">
+                                                <hr class="my-4">
+                                            }
+                                        </div>
+
+
+</form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+<footer class="ftco-footer ftco-bg-dark ftco-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-3">
+                @foreach (var item in @ViewBag.HomePage)
+                {
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">@item.Websitename</h2>
+                        @foreach (var itemm in @ViewBag.AboutUs)
+                        {
+                            <p>@itemm.Whatwedo</p>
+                        }
+
+                    </div>
+                }
+                <ul class="ftco-footer-social list-unstyled float-md-left float-lft ">
+                    <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                    <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                    <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                    <li class="ftco-animate"><a href="#"><span class="icon-youtube"></span></a></li>
+                </ul>
+            </div>
+            <div class="col-md-3" style="margin-left:145px">
+                <div class="ftco-footer-widget mb-4 ml-md-5">
+                    <h2 class="ftco-heading-2">Quick Links</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="/About/Index" class="py-2 d-block">About</a></li>
+                        <li><a href="/Service/Index" class="py-2 d-block">Services</a></li>
+                        <li><a href="/Doctors/Index" class="py-2 d-block">Doctors</a></li>
+                        <li><a href="/Contact/Index" class="py-2 d-block">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            @foreach (var item in @ViewBag.ContactUs)
+            {
+                <div class="col-md-3" style="margin-left:100px">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Office</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">@item.Address</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">@item.Phonenumber</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">@item.Email</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+    <p style="text-align:center">Copyright ©2022 All rights reserved </p>
+
+</footer>
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div> <!-- Modal -->
+<div class="modal fade" id="modalRequest" tabindex="-1" role="dialog" aria-labelledby="modalRequestLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalRequestLabel">Make an Appointment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#">
+                    <div class="form-group">
+                        <!-- <label for="appointment_name" class="text-black">Full Name</label> -->
+                        <input type="text" class="form-control" id="appointment_name" placeholder="Full Name">
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="appointment_email" class="text-black">Email</label> -->
+                        <input type="text" class="form-control" id="appointment_email" placeholder="Email">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- <label for="appointment_date" class="text-black">Date</label> -->
+                                <input type="text" class="form-control appointment_date" placeholder="Date">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- <label for="appointment_time" class="text-black">Time</label> -->
+                                <input type="text" class="form-control appointment_time" placeholder="Time">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <!-- <label for="appointment_message" class="text-black">Message</label> -->
+                        <textarea name="" id="appointment_message" class="form-control" cols="30" rows="10" placeholder="Message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Make an Appointment" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Assests/js/jquery.min.js"></script>
+<script src="~/Assests/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="~/Assests/js/popper.min.js"></script>
+<script src="~/Assests/js/bootstrap.min.js"></script>
+<script src="~/Assests/js/jquery.easing.1.3.js"></script>
+<script src="~/Assests/js/jquery.waypoints.min.js"></script>
+<script src="~/Assests/js/jquery.stellar.min.js"></script>
+<script src="~/Assests/js/owl.carousel.min.js"></script>
+<script src="~/Assests/js/jquery.magnific-popup.min.js"></script>
+<script src="~/Assests/js/aos.js"></script>
+<script src="~/Assests/js/jquery.animateNumber.min.js"></script>
+<script src="~/Assests/js/bootstrap-datepicker.js"></script>
+<script src="~/Assests/js/jquery.timepicker.min.js"></script>
+<script src="~/Assests/js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="~/Assests/js/google-map.js"></script>
+<script src="~/Assests/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h1>Details</h1>
+
+    <div>
+        <h4>Patient</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Fname)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Fname)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Lname)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Lname)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Age)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Age)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Phonenumber)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Phonenumber)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Disease)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Disease)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ImgFile)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ImgFile)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Patientid">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>*@

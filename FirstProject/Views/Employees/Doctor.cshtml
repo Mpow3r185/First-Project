@@ -1,0 +1,260 @@
+﻿@*@model FirstProject.Models.Employee*@
+
+@{
+    ViewData["Title"] = "Details";
+
+}
+@{
+    var empid = ViewBag.EmployeeID;
+
+}
+
+
+<head>
+    <link href="~/Assests/https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Assests/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assests/css/animate.css">
+
+    <link rel="stylesheet" href="~/Assests/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Assests/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Assests/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/Assests/css/aos.css">
+
+    <link rel="stylesheet" href="~/Assests/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/Assests/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Assests/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/Assests/css/flaticon.css">
+    <link rel="stylesheet" href="~/Assests/css/icomoon.css">
+    <link rel="stylesheet" href="~/Assests/css/style.css">
+    <link rel="stylesheet" href="~/Assests/css/StyleSheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+</head>
+<body>
+
+    @foreach (var item in @ViewBag.Emp)
+    {
+
+        <div class="main-content" style="margin-top:160px;">
+            <div class="container-fluid mt--7">
+                <div class="row">
+                    <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+                        <div class="card card-profile shadow">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-3 order-lg-2">
+                                    <div class="card-profile-image">
+                                        <a href="#">
+                                            <img class="rounded-circle" src=@Url.Content("~/images/" + item.Imgpath) style="height:125px; width:125px; border-radius:35%;" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body pt-0 pt-md-4" style="margin-top:75px;">
+
+                                <div class="text-center">
+                                    <h3>
+                                        @item.Fname @item.Lname<span class="font-weight-light"></span>
+                                    </h3>
+                                    <div class="h5 font-weight-300">
+                                        <i class="ni location_pin mr-2"></i>Jordan
+           
+                                    </div>
+
+                                    <hr class="my-4">
+                                    @item.Phonenumber | @item.Email
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 order-xl-1">
+                        <div class="card bg-secondary shadow">
+                            <div class="card-header bg-white border-0">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h3 class="mb-0">details</h3>
+                                    </div>
+                                    <div class="col-4 text-right">
+                                        <a href="/Employees/Edit/@item.Empid" class="btn btn-sm btn-primary">Edit</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <h6 class="heading-small text-muted mb-4">User information</h6>
+                                    <div class="pl-lg-4">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group focused">
+                                                    <h3 class="form-control-label" for="input-fname">First name</h3>
+                                                    <h5 class="form-control form-control-alternative" id="input-fname">@item.Fname</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <div class="form-group focused">
+                                                    <h3 class="form-control-label" for="input-lname">Last name</h3>
+                                                    <h5 class="form-control form-control-alternative" id="input-lname">@item.Lname</h5>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-lg-9">
+                                                    <div class="form-group focused">
+                                                        <h3 class="form-control-label" for="input-lname">About him</h3>
+                                                        <h5 class="form-control form-control-alternative" id="input-lname">@item.Abouthim</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        @*<div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group focused">
+                                                        <h3 class="form-control-label" for="input-gender">Gender</h3>
+                                                        <h5 class="form-control form-control-alternative" id="input-gender">@item.Phonenumber</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <div class="form-group focused">
+                                                        <h3 class="form-control-label" for="input-Age">Age</h3>
+                                                        <h5 class="form-control form-control-alternative" id="input-Age">@item.Email</h5>
+                                                    </div>
+                                                </div>
+
+                                            </div>*@
+                                    </div>
+                                    <hr class="my-4">
+                                    Address
+                                    <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                                    <div class="pl-lg-4">
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h3 class="form-control-label" for="input-email">Email address</h3>
+                                                    <h5 class="form-control form-control-alternative" id="input-email">@item.Email</h5>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-lg-6">
+                                                <div class="form-group">
+                                                    <h3 class="form-control-label" for="input-phone">Phone number</h3>
+                                                    <h5 class="form-control form-control-alternative" id="input-phone">@item.Phonenumber</h5>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <hr class="my-4">
+                                    <h6 class="heading-small text-muted mb-4">Doctor Appointment</h6>
+                                    <div class="pl-lg-4">
+                                        @foreach (var itemm in @ViewBag.Appointment)
+                                        {
+                                            <div class="row">
+                                                <div class="col-lg-6">
+                                                    <div class="form-group">
+                                                        <h3 class="form-control-label" for="input-email">Appoitment</h3>
+                                                        <h5 class="form-control form-control-alternative" id="input-email">@itemm.Appointmenttime</h5>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+</body>
+
+
+
+
+
+
+@*<h1>Details</h1>
+
+    <div>
+        <h4>Employee</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Fname)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Fname)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Lname)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Lname)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Specialist)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Specialist)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Salary)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Salary)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Hiredate)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Hiredate)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Imgpath)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Imgpath)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Phonenumber)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Phonenumber)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Abouthim)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Abouthim)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Clinic)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Clinic.Clinicid)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Role)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Role.Roleid)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Empid">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>*@

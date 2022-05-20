@@ -1,0 +1,124 @@
+﻿@model FirstProject.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit";
+    var ID = ViewBag.EmployeeID;
+}
+<head>
+    <link href="~/Assests/https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Assests/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assests/css/animate.css">
+
+    <link rel="stylesheet" href="~/Assests/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Assests/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Assests/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/Assests/css/aos.css">
+
+    <link rel="stylesheet" href="~/Assests/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/Assests/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Assests/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/Assests/css/flaticon.css">
+    <link rel="stylesheet" href="~/Assests/css/icomoon.css">
+    <link rel="stylesheet" href="~/Assests/css/style.css">
+    <link rel="stylesheet" href="~/Assests/css/StyleSheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+</head>
+<body>
+@foreach (var item in @ViewBag.Emp)
+{
+
+    <div class="main-content" style="margin-top:160px;">
+        <div class="container-fluid mt--7">
+            <div class="row">
+
+                <div class="col-xl-8 order-xl-1">
+                    <div class="card bg-secondary shadow">
+                        <div class="card-header bg-white border-0">
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <h3 class="mb-0">My account</h3>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="Edit" enctype="multipart/form-data">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" asp-for="Empid" />
+                                <h6 class="heading-small text-muted mb-4">User information</h6>
+                                <div class="pl-lg-4">
+
+                                    <div class="card card-profile shadow">
+
+                                        <label asp-for="ImgFile" class="control-label">Profile Picture</label>
+                                        <input asp-for="ImgFile" class="form-control" />
+                                        <span asp-validation-for="ImgFile" class="text-danger"></span>
+                                        <div class="card-body pt-0 pt-md-4" style="margin-top:75px;">
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group focused">
+                                                <label asp-for="Fname" class="control-label">First Name</label>
+                                                <input asp-for="Fname" class="form-control" />
+                                                <span asp-validation-for="Fname" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group focused">
+                                                <label asp-for="Lname" class="control-label">Last name</label>
+                                                <input asp-for="Lname" class="form-control" />
+                                                <span asp-validation-for="Lname" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                          
+                                </div>
+                                <hr class="my-4">
+                                Address
+                                <h6 class="heading-small text-muted mb-4">Contact information</h6>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label asp-for="Email" class="control-label">Email</label>
+                                                <input asp-for="Email" class="form-control" />
+                                                <span asp-validation-for="Email" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label asp-for="Phonenumber" class="control-label">Phone number</label>
+                                                <input asp-for="Phonenumber" class="form-control" />
+                                                <span asp-validation-for="Phonenumber" class="text-danger"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <hr class="my-4">
+                                <div class="form-group">
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+</body>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

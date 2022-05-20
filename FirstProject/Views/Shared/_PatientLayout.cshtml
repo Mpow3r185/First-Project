@@ -1,0 +1,160 @@
+﻿
+@{
+    var ID = ViewBag.PatientID;
+    <head>
+        <title>Health Care</title>
+        <meta charset="utf-8">
+        <link rel="icon" type="image/png" sizes="16x16" href="~/AssestDash/images/loginimg1.jpg">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="~/Assests/https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+
+        <link rel="stylesheet" href="~/Assests/css/open-iconic-bootstrap.min.css">
+        <link rel="stylesheet" href="~/Assests/css/animate.css">
+
+        <link rel="stylesheet" href="~/Assests/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="~/Assests/css/owl.theme.default.min.css">
+        <link rel="stylesheet" href="~/Assests/css/magnific-popup.css">
+
+        <link rel="stylesheet" href="~/Assests/css/aos.css">
+
+        <link rel="stylesheet" href="~/Assests/css/ionicons.min.css">
+
+        <link rel="stylesheet" href="~/Assests/css/bootstrap-datepicker.css">
+        <link rel="stylesheet" href="~/Assests/css/jquery.timepicker.css">
+
+
+        <link rel="stylesheet" href="~/Assests/css/flaticon.css">
+        <link rel="stylesheet" href="~/Assests/css/icomoon.css">
+        <link rel="stylesheet" href="~/Assests/css/style.css">
+    </head>
+    <body>
+        @foreach (var item in @ViewBag.HomePage)
+        {
+            <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+                <div class="container">
+                    <a class="navbar-brand" href="/Home/Index"><span>@item.Websitename</span></a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="oi oi-menu"></span> Menu
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="ftco-nav">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active"><a href="/Home/Index" class="nav-link">Home</a></li>
+                            <li class="nav-item"><a href="/Service/Index" class="nav-link">Services</a></li>
+                            <li class="nav-item"><a href="/Clinic/Index" class="nav-link">Clinics</a></li>
+                            <li class="nav-item"><a href="/Doctors/Index" class="nav-link">Doctors</a></li>
+                            <li class="nav-item"><a href="/About/Index" class="nav-link">About</a></li>
+                            <li class="nav-item"><a href="/Contact/Index" class="nav-link">Contact</a></li>
+                            <li class="nav-item"><a href="/Patients/Details/@ID" class="nav-link">Profile</a></li>
+                            <li class="nav-item cta"><a href="/Clinic/Index" class="nav-link"><span>Make an Appointment</span></a></li>
+                            <li class="nav-item cta"><a href="/LoginRegister/Login" class="nav-link" style="color:dodgerblue;margin-left:10px;">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        <!-- END nav -->
+
+        @foreach (var itemm in @ViewBag.AboutUs)
+        {
+
+            <section class="home-slider owl-carousel">
+                <div class="slider-item" style="background-image: url(@Url.Content("~/images/" + @item.Imgslider));">
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row slider-text align-items-center" data-scrollax-parent="true">
+                            <div class="col-md-6 col-sm-12 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                                <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">@item.Textimg</h1>
+                                <p class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">@itemm.Whatwedo</p>
+                                <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><a href="/Clinic/Index" class="btn btn-primary px-4 py-3">Make an Appointment</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+        }
+    </body>
+    <!--Rendor Body-->
+    <div>
+        @RenderBody()
+    </div>
+    <!--Footer-->
+    <!--Footer-->
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-md-3">
+                    @foreach (var item in @ViewBag.HomePage)
+                    {
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2">@item.Websitename</h2>
+                            @foreach (var itemm in @ViewBag.AboutUs)
+                            {
+                                <p>@itemm.Whatwedo</p>
+                            }
+
+                        </div>
+                    }
+                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft ">
+                        <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                        <li class="ftco-animate"><a href="#"><span class="icon-youtube"></span></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3" style="margin-left:145px">
+                    <div class="ftco-footer-widget mb-4 ml-md-5">
+                        <h2 class="ftco-heading-2">Quick Links</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="/About/Index" class="py-2 d-block">About</a></li>
+                            <li><a href="/Service/Index" class="py-2 d-block">Services</a></li>
+                            <li><a href="/Doctors/Index" class="py-2 d-block">Doctors</a></li>
+                            <li><a href="/Contact/Index" class="py-2 d-block">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                @foreach (var item in @ViewBag.ContactUs)
+                {
+                    <div class="col-md-3" style="margin-left:100px">
+                        <div class="ftco-footer-widget mb-4">
+                            <h2 class="ftco-heading-2">Office</h2>
+                            <div class="block-23 mb-3">
+                                <ul>
+                                    <li><span class="icon icon-map-marker"></span><span class="text">@item.Address</span></li>
+                                    <li><a href="#"><span class="icon icon-phone"></span><span class="text">@item.Phonenumber</span></a></li>
+                                    <li><a href="#"><span class="icon icon-envelope"></span><span class="text">@item.Email</span></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+
+        <p style="text-align:center">Copyright ©2022 All rights reserved </p>
+
+    </footer>
+  
+
+
+    <script src="~/Assests/js/jquery.min.js"></script>
+    <script src="~/Assests/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="~/Assests/js/popper.min.js"></script>
+    <script src="~/Assests/js/bootstrap.min.js"></script>
+    <script src="~/Assests/js/jquery.easing.1.3.js"></script>
+    <script src="~/Assests/js/jquery.waypoints.min.js"></script>
+    <script src="~/Assests/js/jquery.stellar.min.js"></script>
+    <script src="~/Assests/js/owl.carousel.min.js"></script>
+    <script src="~/Assests/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/Assests/js/aos.js"></script>
+    <script src="~/Assests/js/jquery.animateNumber.min.js"></script>
+    <script src="~/Assests/js/bootstrap-datepicker.js"></script>
+    <script src="~/Assests/js/jquery.timepicker.min.js"></script>
+    <script src="~/Assests/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/Assests/js/google-map.js"></script>
+    <script src="~/Assests/js/main.js"></script>
+}

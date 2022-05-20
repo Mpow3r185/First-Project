@@ -1,0 +1,71 @@
+﻿@model IEnumerable<FirstProject.Models.Subscription>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SubType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service4)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service5)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service5)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Subid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Subid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Subid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,172 @@
+﻿@model FirstProject.Models.Appointment
+@{
+    var ID = ViewBag.PatientID;
+
+    var name = ViewBag.Name;
+    if (@name != "mh")
+        Layout = "/Views/Shared/_HomeLayout.cshtml";
+    else
+        Layout = "/Views/Shared/_PatientLayout.cshtml";
+    ViewData["Title"] = "Index";
+}
+<head>
+    <link href="~/Assests/https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Assests/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assests/css/animate.css">
+
+    <link rel="stylesheet" href="~/Assests/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Assests/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Assests/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/Assests/css/aos.css">
+
+    <link rel="stylesheet" href="~/Assests/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/Assests/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Assests/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/Assests/css/flaticon.css">
+    <link rel="stylesheet" href="~/Assests/css/icomoon.css">
+    <link rel="stylesheet" href="~/Assests/css/style.css">
+    <link rel="stylesheet" href="~/Assests/css/StyleSheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+</head>
+<body>
+    <div class="main-content" style="margin-top:160px;">
+        <div class="container-fluid mt--7">
+            <div class="row">
+               
+                <div class="col-xl-8 order-xl-1">
+                    <div class="card bg-secondary shadow">
+                        <div class="card-header bg-white border-0">
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <h3 class="mb-0">Take an appointment</h3>
+                                </div>
+                           
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form asp-action="Create">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <h6 class="heading-small text-muted mb-4">User information</h6>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group focused">
+                                                <label for="Fname" class="control-label">First Name</label><br />
+                                                <input type="text" name="fname" id="fname" />
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group focused">
+                                                <label for="lname"><i class="zmdi zmdi-lock"></i>Last name</label><br />
+                                                <input type="text" name="lname" id="lname" />
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group focused">
+                                                <label for="Email"><i class="zmdi zmdi-lock-outline"></i>Your Email</label><br />
+                                                <input type="email" name="Email" id="username" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--<div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group focused">
+                                                <label asp-for="Empid" class="control-label"></label>
+                                                <select asp-for="Empid" class ="form-control" asp-items="ViewBag.Empid"></select>-->
+                                                @*<label for="docname"><i class="zmdi zmdi-lock-outline"></i>Doctor name</label><br />
+                                                <input type="text" name="docname" id="docname" />*@
+                                            <!--</div>
+                                        </div>
+                                    </div>-->
+
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group focused">
+                                                <label asp-for="Healthcase" class="control-label">Health case</label>
+                                                <input asp-for="Healthcase" class="form-control" />
+                                                <span asp-validation-for="Healthcase" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-left:4px;">
+                                        <div class="form-group">
+                                            <label asp-for="Appointmenttime" class="control-label">Appointment time</label>
+                                            <input asp-for="Appointmenttime" class="form-control" />
+                                            <span asp-validation-for="Appointmenttime" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" value="Take Appointment" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                                <hr class="my-4">
+                                <hr class="my-4">
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row" style="margin-top:20px;margin-left:25px;">
+                <div class="form-group">
+                    <label for="fname"><i class="zmdi zmdi-lock"></i>First name</label>
+                    <input type="text" name="fname" id="fname" />
+
+                    <label for="lname"><i class="zmdi zmdi-lock"></i>Last name</label>
+                    <input type="text" name="lname" id="lname" placeholder="Last name" />
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Email"><i class="zmdi zmdi-lock-outline"></i></label>
+                <input type="email" name="Email" id="username" placeholder=" Your Email" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Healthcase" class="control-label">Health case</label>
+                <input asp-for="Healthcase" class="form-control" />
+                <span asp-validation-for="Healthcase" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Appointmenttime" class="control-label">Appointment time</label>
+                <input asp-for="Appointmenttime" class="form-control" />
+                <span asp-validation-for="Appointmenttime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>*@

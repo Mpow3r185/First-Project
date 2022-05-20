@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Clinic>
+@{
+    Layout = "_HomeLayout";
+}
+
+
+
+<div class="s01">
+    <form method="post" action="Search" style="margin-top:25px;">
+
+        <div class="inner-form">
+            <div class="row" style="margin-left:600px;">
+                <div class="input-field first-wrap">
+                    <input name="clinicName" type="text" placeholder="Clinic name" />
+                </div>
+
+                <div class="input-field third-wrap" style="margin-left:10px">
+                    <button class="btn-search" type="submit" style="color:white;background-color:dodgerblue">Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+
+
+
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+            <div class="col-lg-3 col-md-6 d-flex mb-sm-4 ftco-animate">
+
+                <div class="staff">
+                    <div class="img mb-4" style="background-image: url(@Url.Content("~/images/" + @item.ClinicImg));"></div>
+                    <div class="info text-center">
+                        <h3><a href="/Clinic/Clinic/@item.Clinicid">@item.Clincname</a></h3>
+                        <span class="position">@item.Phonenumber</span>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>
+

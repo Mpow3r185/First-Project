@@ -1,0 +1,351 @@
+﻿
+@{
+
+    var ID = ViewBag.PatientID;
+    var name = ViewBag.Name;
+    var empid = ViewBag.EmployeeID;
+}
+<head>
+    <link href="~/Assests/https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/Assests/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/Assests/css/animate.css">
+
+    <link rel="stylesheet" href="~/Assests/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/Assests/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/Assests/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/Assests/css/aos.css">
+
+    <link rel="stylesheet" href="~/Assests/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/Assests/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/Assests/css/jquery.timepicker.css">
+
+
+    <link rel="stylesheet" href="~/Assests/css/flaticon.css">
+    <link rel="stylesheet" href="~/Assests/css/icomoon.css">
+    <link rel="stylesheet" href="~/Assests/css/style.css">
+    <link rel="stylesheet" href="~/Assests/css/StyleSheet.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+</head>
+<body>
+    @foreach (var item in @ViewBag.HomePage)
+    {
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" href="/Home/Index"><span>@item.Websitename</span></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active"><a href="/Home/Index" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="/Service/Index" class="nav-link">Services</a></li>
+                        <li class="nav-item"><a href="/Clinic/Index" class="nav-link">Clinics</a></li>
+                        <li class="nav-item"><a href="/Doctors/Index" class="nav-link">Doctors</a></li>
+                        <li class="nav-item"><a href="/About/Index" class="nav-link">About</a></li>
+                        <li class="nav-item"><a href="/Contact/Index" class="nav-link">Contact</a></li>
+                        <li class="nav-item"><a href="/Patients/Details/@ID" class="nav-link">Profile</a></li>
+                        <li class="nav-item"><a href="/LoginRegister/Login" class="nav-link">Logout</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    }
+
+
+    <div class="main-content" style="margin-top:160px;">
+        <div class="container-fluid mt--7">
+            <div class="row">
+                @foreach (var item in @ViewBag.clinicId)
+                {
+                    <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+
+                        <div class="card card-profile shadow">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-3 order-lg-2">
+                                    <div class="card-profile-image">
+                                        <a href="#">
+                                            <img class="rounded-circle" src=@Url.Content("~/images/" + @item.ClinicImg) style="height:125px; width:125px; border-radius:35%;" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body pt-0 pt-md-4" style="margin-top:75px;">
+
+                                <div class="text-center">
+                                    <h3>
+                                        @item.Clincname<span class="font-weight-light"></span>
+                                    </h3>
+                                    <div class="h5 font-weight-300">
+                                        <i class="ni location_pin mr-2"></i>
+                                       
+                                    </div>
+
+                                    <hr class="my-4">
+                                    @item.Phonenumber
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                <div class="col-xl-8 order-xl-1">
+                    <div class="card bg-secondary shadow">
+                        <div class="card-header bg-white border-0">
+                            <div class="row align-items-center">
+                                <div class="col-8">
+                                    <h3 class="mb-0">Doctors </h3>
+                                </div>
+
+                            </div>
+                        </div>
+                        <section class="ftco-section">
+                            <div class="container">
+                                <div class="row">
+                                    @foreach (var item in ViewBag.docClinic)
+                                    {
+                                   
+                                        <div class="col-lg-5 col-md-8 d-flex mb-sm-6 ftco-animate">
+
+                                            <div class="staff">
+                                                <div class="img mb-4" style="background-image: url(@Url.Content("~/images/" + @item.Imgpath));"></div>
+                                                <div class="info text-center">
+                                                    <h3><a href="/Employees/Details/@item.Empid">@item.Fname @item.Lname</a></h3>
+                                                    <span class="position">@item.Specialist</span>
+                                                    <div class="text">
+                                                        <p>@item.Abouthim</p>
+                                                        <ul class="ftco-social">
+                                                            <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                                                            <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                                                            <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                                                            <li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    }
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<footer class="ftco-footer ftco-bg-dark ftco-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-3">
+                @foreach (var item in @ViewBag.HomePage)
+                {
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">@item.Websitename</h2>
+                        @foreach (var itemm in @ViewBag.AboutUs)
+                        {
+                            <p>@itemm.Whatwedo</p>
+                        }
+
+                    </div>
+                }
+                <ul class="ftco-footer-social list-unstyled float-md-left float-lft ">
+                    <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                    <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                    <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+                    <li class="ftco-animate"><a href="#"><span class="icon-youtube"></span></a></li>
+                </ul>
+            </div>
+            <div class="col-md-3" style="margin-left:145px">
+                <div class="ftco-footer-widget mb-4 ml-md-5">
+                    <h2 class="ftco-heading-2">Quick Links</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="/About/Index" class="py-2 d-block">About</a></li>
+                        <li><a href="/Service/Index" class="py-2 d-block">Services</a></li>
+                        <li><a href="/Doctors/Index" class="py-2 d-block">Doctors</a></li>
+                        <li><a href="/Contact/Index" class="py-2 d-block">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            @foreach (var item in @ViewBag.ContactUs)
+            {
+                <div class="col-md-3" style="margin-left:100px">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Office</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon icon-map-marker"></span><span class="text">@item.Address</span></li>
+                                <li><a href="#"><span class="icon icon-phone"></span><span class="text">@item.Phonenumber</span></a></li>
+                                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">@item.Email</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+
+    <p style="text-align:center">Copyright ©2022 All rights reserved </p>
+
+</footer>
+<!-- loader -->
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div> <!-- Modal -->
+<div class="modal fade" id="modalRequest" tabindex="-1" role="dialog" aria-labelledby="modalRequestLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalRequestLabel">Make an Appointment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#">
+                    <div class="form-group">
+                        <!-- <label for="appointment_name" class="text-black">Full Name</label> -->
+                        <input type="text" name="Fname" class="form-control" id="appointment_fname" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="appointment_name" class="text-black">Full Name</label> -->
+                        <input type="text" name="Lname" class="form-control" id="appointment_lname" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="appointment_email" class="text-black">Email</label> -->
+                        <input type="text" name="Email" class="form-control" id="appointment_email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <!-- <label for="appointment_email" class="text-black">Email</label> -->
+                        <input type="text" name="case" class="form-control" id="appointment_case" placeholder="Health Case">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- <label for="appointment_date" class="text-black">Date</label> -->
+                                <input type="date" class="form-control appointment_date" placeholder="Date">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <!-- <label for="appointment_time" class="text-black">Time</label> -->
+                                <input type="time" class="form-control appointment_time" placeholder="Time">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <!-- <label for="appointment_message" class="text-black">Message</label> -->
+                        <textarea name="" id="appointment_message" class="form-control" cols="30" rows="10" placeholder="Message"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Make an Appointment" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Assests/js/jquery.min.js"></script>
+<script src="~/Assests/js/jquery-migrate-3.0.1.min.js"></script>
+<script src="~/Assests/js/popper.min.js"></script>
+<script src="~/Assests/js/bootstrap.min.js"></script>
+<script src="~/Assests/js/jquery.easing.1.3.js"></script>
+<script src="~/Assests/js/jquery.waypoints.min.js"></script>
+<script src="~/Assests/js/jquery.stellar.min.js"></script>
+<script src="~/Assests/js/owl.carousel.min.js"></script>
+<script src="~/Assests/js/jquery.magnific-popup.min.js"></script>
+<script src="~/Assests/js/aos.js"></script>
+<script src="~/Assests/js/jquery.animateNumber.min.js"></script>
+<script src="~/Assests/js/bootstrap-datepicker.js"></script>
+<script src="~/Assests/js/jquery.timepicker.min.js"></script>
+<script src="~/Assests/js/scrollax.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+<script src="~/Assests/js/google-map.js"></script>
+<script src="~/Assests/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<h1>Details</h1>
+
+    <div>
+        <h4>Patient</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Fname)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Fname)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Lname)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Lname)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Age)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Age)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Phonenumber)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Phonenumber)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Disease)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Disease)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ImgFile)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ImgFile)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Patientid">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>*@
